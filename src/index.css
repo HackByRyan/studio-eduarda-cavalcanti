@@ -1,0 +1,246 @@
+@import "tailwindcss";
+
+/* =====================================================
+   TEMA — STUDIO EDUARDA CAVALCANTI
+   Paleta: rosa (blush), champanhe (dourado contido),
+   fundo marfim (ivory), texto tinta (ink).
+   ===================================================== */
+@theme {
+  --color-ivory: #fff9fa;
+  --color-cream: #f5cbd7;
+
+  --color-blush-50: #fef7f9;
+  --color-blush-100: #fcebf0;
+  --color-blush-200: #f9dce5;
+  --color-blush-300: #f5cbd7;
+  --color-blush-400: #ea9bb1;
+  --color-blush-500: #e0708e;
+  --color-blush-600: #d14d73;
+  --color-blush-700: #b43f63;
+  --color-blush-800: #8e2e4e;
+
+  --color-ink-900: #2b2024;
+  --color-ink-800: #3b2f34;
+  --color-ink-700: #4c3d43;
+  --color-ink-600: #6e5a61;
+  --color-ink-500: #937e85;
+  --color-ink-300: #c2b2b7;
+  --color-ink-100: #ebe3e6;
+
+  --color-champagne-200: #f0e4c4;
+  --color-champagne-300: #e3d09a;
+  --color-champagne-400: #d5ba6c;
+  --color-champagne-500: #c9a13b;
+
+  --color-wa: #25d366;
+  --color-wa-dark: #1eb857;
+
+  --font-display: "Cormorant Garamond", "Georgia", serif;
+  --font-body: "Jost", "Segoe UI", system-ui, sans-serif;
+}
+
+/* =====================================================
+   BASE
+   ===================================================== */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: var(--color-ivory);
+    color: var(--color-ink-800);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: rgba(234, 155, 177, 0.35);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-blush-600);
+    outline-offset: 2px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-ivory);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(234, 155, 177, 0.55);
+    border: 2px solid var(--color-ivory);
+    border-radius: 6px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-blush-500);
+  }
+}
+
+/* =====================================================
+   COMPONENTES
+   ===================================================== */
+@layer components {
+  .container-site {
+    width: 100%;
+    max-width: 76rem;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+  }
+  @media (width >= 768px) {
+    .container-site {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Botões */
+  .btn {
+    letter-spacing: 0.16em;
+    white-space: nowrap;
+    border-radius: 9999px;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    max-width: 100%;
+    min-height: 2.75rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: inline-flex;
+  }
+  .btn-sm {
+    padding: 0.65rem 1.35rem;
+    font-size: 0.7rem;
+  }
+  .btn-md {
+    padding: 0.95rem 1.9rem;
+    font-size: 0.8rem;
+  }
+  .btn-lg {
+    padding: 1.15rem 2.4rem;
+    font-size: 0.85rem;
+  }
+
+  .btn-primary {
+    background-color: var(--color-blush-600);
+    color: #fff;
+    box-shadow: 0 16px 34px -18px rgba(209, 77, 115, 0.8);
+  }
+  .btn-primary:hover {
+    background-color: var(--color-blush-700);
+    transform: translateY(-2px);
+    box-shadow: 0 22px 44px -18px rgba(180, 63, 99, 0.85);
+  }
+
+  .btn-white {
+    color: var(--color-blush-700);
+    background-color: #fff;
+    box-shadow: 0 16px 34px -18px rgba(0, 0, 0, 0.45);
+  }
+  .btn-white:hover {
+    background-color: var(--color-blush-50);
+    transform: translateY(-2px);
+  }
+
+  .btn-wa {
+    background-color: var(--color-wa);
+    color: #fff;
+    box-shadow: 0 16px 34px -18px rgba(37, 211, 102, 0.8);
+  }
+  .btn-wa:hover {
+    background-color: var(--color-wa-dark);
+    transform: translateY(-2px);
+  }
+
+  .btn-ghost {
+    border: 1px solid rgba(43, 32, 36, 0.16);
+    color: var(--color-ink-800);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    background-color: rgba(255, 255, 255, 0.55);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(224, 112, 142, 0.55);
+    color: var(--color-blush-700);
+    transform: translateY(-2px);
+  }
+
+  /* Pill de seção */
+  .eyebrow-pill {
+    background-color: rgba(252, 235, 240, 0.85);
+    border-radius: 9999px;
+    align-items: center;
+    gap: 0.5rem;
+    display: inline-flex;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--color-blush-700);
+    padding: 0.4rem 1rem;
+    font-size: 0.62rem;
+    font-weight: 600;
+  }
+
+  /* Botão full width apenas em telas muito pequenas */
+  .btn-block-sm {
+    width: 100%;
+  }
+  @media (width >= 640px) {
+    .btn-block-sm {
+      width: auto;
+    }
+  }
+
+  /* Realce sutil de fotos reais */
+  .img-enhance {
+    filter: brightness(1.04) contrast(1.05) saturate(1.06);
+  }
+
+  /* Tipografia fluida */
+  .text-hero {
+    font-size: clamp(2.5rem, 1.1rem + 4.6vw, 4.4rem);
+    line-height: 1.05;
+  }
+  .text-section {
+    font-size: clamp(2.125rem, 1.3rem + 2.6vw, 3.125rem);
+    line-height: 1.1;
+  }
+  .text-big {
+    font-size: clamp(2.25rem, 1.2rem + 3.4vw, 3.75rem);
+    line-height: 1.08;
+  }
+  .text-stat {
+    font-size: clamp(3.25rem, 2.2rem + 5vw, 6.5rem);
+    line-height: 0.95;
+  }
+  .text-address {
+    font-size: clamp(1.75rem, 1.4rem + 1.8vw, 2.25rem);
+    line-height: 1.15;
+  }
+}
+
+/* Flutuação suave dos elementos decorativos do hero */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
